@@ -21,6 +21,10 @@ class BanksController < ApplicationController
     end
   end
 
+  def edit
+    @bank = current_user.banks.find(params[:id])
+  end
+
   private
     def bank_params
       params.require(:bank).permit(:title, :goal, :user_id)
