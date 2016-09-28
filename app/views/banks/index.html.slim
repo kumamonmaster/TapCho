@@ -2,11 +2,11 @@ h1 貯金箱一覧
 
 = link_to '追加', new_user_bank_path, class: "btn btn-primary"
 
-ul
+.list-group
   - @banks.each do |bank|
-    li = link_to bank.title, user_bank_path(bank)
-    | 目標:
-    = bank.goal
-    | 円
-    = link_to '編集', edit_user_bank_path(bank)
-      
+    = link_to user_bank_path(bank), class: "list-group-item"
+      h4.list-group-item-heading = bank.title
+      p.list-group-item-text
+        | 目標:
+        = bank.goal
+        | 円

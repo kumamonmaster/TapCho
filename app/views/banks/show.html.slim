@@ -2,6 +2,6 @@ h1 = @bank.title
 h2
   | 目標 : 
   = @bank.goal
-
+= link_to '編集', edit_user_bank_path(@bank)
 = link_to '貯金箱一覧', user_banks_path
 = link_to '壊す', user_bank_path(@bank), method: :delete, class: "btn btn-danger"
