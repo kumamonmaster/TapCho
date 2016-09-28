@@ -1,2 +1,8 @@
-h1 Banks#index
-p Find me in app/views/banks/index.html.slim
+h1 貯金箱一覧
+
+ul
+  - @banks.each do |bank|
+    li bank.title
+      | 目標:
+      = bank.goal
+      
