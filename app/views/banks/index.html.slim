@@ -1,7 +1,5 @@
 h1 貯金箱一覧
 
-= link_to '追加', new_user_bank_path, class: "btn btn-primary"
-
 .list-group
   - @banks.each do |bank|
     = link_to user_bank_path(bank), class: "list-group-item"
@@ -10,3 +8,7 @@ h1 貯金箱一覧
         | 目標:
         = bank.goal
         | 円
+        
+.text-center
+  = link_to new_user_bank_path
+    i.fa.fa-plus-circle.fa-3x
