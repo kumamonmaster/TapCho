@@ -1,5 +1,6 @@
 class BanksController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_bank, only: [:show, :edit, :update]
 
   def index
     @banks = current_user.banks.all
@@ -22,11 +23,22 @@ class BanksController < ApplicationController
   end
 
   def edit
-    @bank = current_user.banks.find(params[:id])
+  end
+
+  def update
+    if @bank.update(bank_params)
+      redirect_to user_bank_path(@bank)
+    else
+      render :edit
+    end
   end
 
   private
     def bank_params
       params.require(:bank).permit(:title, :goal, :user_id)
+    end
+
+    def set_bank
+      @bank = current_user.banks.find(params[:id])
     end
 end
