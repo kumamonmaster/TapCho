@@ -4,7 +4,7 @@ h1 貯金箱一覧
 
 ul
   - @banks.each do |bank|
-    li = bank.title
+    li = link_to bank.title, user_bank_path(bank)
     | 目標:
     = bank.goal
     | 円

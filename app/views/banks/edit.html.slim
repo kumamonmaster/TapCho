@@ -1,6 +1,6 @@
 h1 編集
 
-= form_for [current_user, @bank] do |f|
+= form_for [current_user, @bank], :url => {:action => 'update'} do |f|
   .form-group
     = f.label :title
     = f.text_field :title, class: "form-control", autofocus: true
