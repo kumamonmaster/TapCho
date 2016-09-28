@@ -1,0 +1,27 @@
+h1.page-header ログイン
+
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .form-horizontal
+    .form-group
+      = f.label 'アカウント', class: "col-sm-2 control-label"
+      .col-sm-10
+        = f.text_field :login, class: "form-control", placeholder: "ユーザー名もしくはメールアドレス", autofocus: true
+
+    .form-group
+      = f.label 'パスワード', class: "col-sm-2 control-label"
+      .col-sm-10
+        = f.password_field :password, class: "form-control", placeholder: "パスワード", autocomplete: "off"
+
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        .checkbox
+          label
+            = f.check_box :remember_me
+            | ログイン情報を記録する
+
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        = f.submit "ログイン", class: "btn btn-primary"
+
+.text-center
+  = render "devise/shared/links"
