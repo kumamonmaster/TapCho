@@ -1,7 +1,18 @@
-h1 = @bank.title
-h2
-  | 目標 : 
-  = @bank.goal
-= link_to '編集', edit_user_bank_path(@bank)
-= link_to '貯金箱一覧', user_banks_path
-= link_to '壊す', user_bank_path(@bank), method: :delete, class: "btn btn-danger"
+.row
+  .col-md-8.col-md-offset-2
+    = link_to user_banks_path, class: "btn btn-default"
+      i.fa.fa-chevron-left.fa-fw
+      | 貯金箱一覧に戻る
+    
+    h1 = @bank.title
+    h2
+      | 目標 : 
+      = @bank.goal
+      | 円
+
+.row
+  .col-md-4.col-md-offset-4
+    = link_to '編集', edit_user_bank_path(@bank), class: "btn btn-success btn-block"
+    = link_to '貯金箱を壊す', user_bank_path(@bank), method: :delete, class: "btn btn-danger btn-block", data: { confirm: "本当に削除してもいいですか？" }
+
+      
