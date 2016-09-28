@@ -29,6 +29,7 @@ module TapCho
     config.generators do |g|
       g.assets false
       g.helper false
+      g.skip_routes true
       g.template_engine :slim
     end
   end
