@@ -1,4 +1,4 @@
-h1 編集
+h1.page-header 貯金箱の編集
 
 = form_for [current_user, @bank], :url => {:action => 'update'} do |f|
   .form-horizontal
@@ -14,5 +14,5 @@ h1 編集
     
     .form-group
       .col-sm-offset-2.col-sm-10
-        = f.submit '更新する', class: "btn btn-primary"
+        = f.submit '更新する', class: "btn btn-success"
         = link_to 'キャンセル', :back, class: "btn btn-default"
