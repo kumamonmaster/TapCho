@@ -1,5 +1,7 @@
 h1 貯金箱一覧
 
+= link_to '追加', new_user_bank_path, class: "btn btn-primary"
+
 ul
   - @banks.each do |bank|
     li bank.title
