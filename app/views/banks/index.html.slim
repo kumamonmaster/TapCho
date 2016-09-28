@@ -4,7 +4,8 @@ h1 貯金箱一覧
 
 ul
   - @banks.each do |bank|
-    li bank.title
-      | 目標:
-      = bank.goal
+    li = bank.title
+    | 目標:
+    = bank.goal
+    | 円
       
