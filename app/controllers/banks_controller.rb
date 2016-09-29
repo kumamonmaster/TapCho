@@ -7,6 +7,7 @@ class BanksController < ApplicationController
   end
 
   def show
+    @money = @bank.money
   end
 
   def new
@@ -15,6 +16,10 @@ class BanksController < ApplicationController
 
   def create
     @bank = current_user.banks.build(bank_params)
+    @money = Money.new
+    @money.bank_id = @bank.id
+    @money.save
+    @bank.money = @money
     if @bank.save
       redirect_to user_banks_path
     else

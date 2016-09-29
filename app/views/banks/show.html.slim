@@ -7,7 +7,7 @@ h1.page-header.text-primary
   = link_to '編集', edit_user_bank_path(@bank), class: "btn btn-success pull-right"
 
 .text-center.margin-bottom-50
-  = link_to image_tag("money_chokinbako", height: 70), edit_user_bank_path(@bank)
+  = link_to image_tag("money_chokinbako", height: 70), user_bank_mony_path(@bank, @money)
 
 .row.margin-bottom-50
   .col-sm-4.col-md-2.text-center
