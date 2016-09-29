@@ -2,10 +2,31 @@
   i.fa.fa-chevron-left.fa-fw
   | 貯金箱一覧に戻る
 
-h1.page-header.text-primary = @bank.title
+h1.page-header.text-primary
+  = @bank.title
+  = link_to '編集', edit_user_bank_path(@bank), class: "btn btn-success pull-right"
 
-.text-center
-  = image_tag "money_chokinbako", height: 70
+.text-center.margin-bottom-50
+  = link_to image_tag("money_chokinbako", height: 70), edit_user_bank_path(@bank)
+
+.row.margin-bottom-50
+  .col-sm-4.col-md-2.text-center
+    = image_tag "money_1", height: 70
+
+  .col-sm-4.col-md-2.text-center
+    = image_tag "money_5", height: 70
+
+  .col-sm-4.col-md-2.text-center
+    = image_tag "money_10", height: 70
+
+  .col-sm-4.col-md-2.text-center
+    = image_tag "money_50", height: 70
+    
+  .col-sm-4.col-md-2.text-center
+    = image_tag "money_100", height: 70
+    
+  .col-sm-4.col-md-2.text-center
+    = image_tag "money_500", height: 70
 
 .row
   .col-sm-6.col-md-3.text-center
@@ -18,28 +39,4 @@ h1.page-header.text-primary = @bank.title
     = image_tag "money_5000", height: 70
     
   .col-sm-6.col-md-3.text-center
-    = image_tag "money_10000", height: 70
-
-.row
-  .col-sm-4.col-md-2.text-center
-    = image_tag "money_1", height: 70
-  
-  .col-sm-4.col-md-2.text-center
-    = image_tag "money_5", height: 70
-  
-  .col-sm-4.col-md-2.text-center
-    = image_tag "money_10", height: 70
-    
-  .col-sm-4.col-md-2.text-center
-    = image_tag "money_50", height: 70
-    
-  .col-sm-4.col-md-2.text-center
-    = image_tag "money_100", height: 70
-    
-  .col-sm-4.col-md-2.text-center
-    = image_tag "money_500", height: 70
-
-= link_to '編集', edit_user_bank_path(@bank), class: "btn btn-success btn-block"
-= link_to '貯金箱を壊す', user_bank_path(@bank), method: :delete, class: "btn btn-danger btn-block", data: { confirm: "本当に削除してもいいですか？" }
-
-      
+    = image_tag "money_10000", height: 70      
