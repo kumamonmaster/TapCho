@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160928045412) do
+ActiveRecord::Schema.define(version: 20160929140138) do
 
   create_table "banks", force: :cascade do |t|
     t.string   "title"
@@ -18,6 +18,22 @@ ActiveRecord::Schema.define(version: 20160928045412) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "money", force: :cascade do |t|
+    t.integer  "money1",     default: 0
+    t.integer  "money5",     default: 0
+    t.integer  "money10",    default: 0
+    t.integer  "money50",    default: 0
+    t.integer  "money100",   default: 0
+    t.integer  "money500",   default: 0
+    t.integer  "money1000",  default: 0
+    t.integer  "money2000",  default: 0
+    t.integer  "money5000",  default: 0
+    t.integer  "money10000", default: 0
+    t.integer  "bank_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|
