@@ -1,13 +1,19 @@
 h1.page-header 貯金箱一覧
 
-.list-group
-  - @banks.each do |bank|
-    = link_to user_bank_path(bank), class: "list-group-item"
-      h4.list-group-item-heading = bank.title
-      p.list-group-item-text
-        | 目標:
-        = bank.goal
-        | 円
+- if @banks.empty?
+  p.text-center
+    | 下の
+    i.fa.fa-plus-circle.fa-fw
+    | ボタンを押して貯金箱を追加してください
+- else
+  .list-group
+    - @banks.each do |bank|
+      = link_to user_bank_path(bank), class: "list-group-item"
+        h4.list-group-item-heading = bank.title
+        p.list-group-item-text
+          | 目標:
+          = bank.goal
+          | 円
         
 .text-center
   = link_to new_user_bank_path
