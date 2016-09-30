@@ -1,2 +1,17 @@
-h1 Monies#show
-p Find me in app/views/monies/show.html.slim
+h1.page-header.text-primary
+  = @bank.title
+  | の中身
+h2
+  | 合計金額
+  = @total
+  | 円
+
+h2
+  | 目標金額 : 
+  = @bank.goal
+  | 円
+
+h2
+  | 目標まであと
+  = @diff
+  | 円
