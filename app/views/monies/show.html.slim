@@ -2,16 +2,17 @@ h1.page-header.text-primary
   = @bank.title
   | の中身
 h2
-  | 合計金額
-  = @total
+  | 合計 : 
+  = @total.to_s(:delimited)
   | 円
 
-h2
-  | 目標金額 : 
-  = @bank.goal
-  | 円
+- unless @bank.goal == 0
+  h2
+    | 目標 : 
+    = @bank.goal.to_s(:delimited)
+    | 円
 
-h2
-  | 目標まであと
-  = @diff
-  | 円
+  h2
+    | 目標まであと
+    span.text-danger = @diff.to_s(:delimited)
+    | 円です！

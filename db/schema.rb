@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160929140138) do
+ActiveRecord::Schema.define(version: 20160930040917) do
 
   create_table "banks", force: :cascade do |t|
     t.string   "title"
-    t.integer  "goal"
+    t.integer  "goal",       default: 0
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "money", force: :cascade do |t|
