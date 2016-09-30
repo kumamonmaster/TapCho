@@ -1,9 +1,5 @@
 - @title = @bank.title
 
-= link_to user_banks_path, class: "btn btn-default"
-  i.fa.fa-chevron-left.fa-fw
-  | 貯金箱一覧に戻る
-
 h1.page-header.text-primary
   = @title
   = link_to '編集', edit_user_bank_path(@bank), class: "btn btn-success pull-right"
