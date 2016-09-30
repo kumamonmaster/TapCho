@@ -1,4 +1,6 @@
-h1.page-header 貯金箱の追加
+- @title = "貯金箱の追加"
+
+h1.page-header = @title
 
 = form_for [current_user, @bank] do |f|
   .form-horizontal
@@ -14,5 +16,6 @@ h1.page-header 貯金箱の追加
     
     .form-group
       .col-sm-offset-2.col-sm-10
-        = f.submit '追加する', class: "btn btn-primary"
-        = link_to 'キャンセル', :back, class: "btn btn-default"
+        .pull-right
+          = f.submit '追加する', class: "btn btn-primary margin-right-10"
+          = link_to 'キャンセル', :back, class: "btn btn-default"

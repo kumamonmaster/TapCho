@@ -1,6 +1,7 @@
-h1.page-header.text-primary
-  = @bank.title
-  | の中身
+- @title = "#{@bank.title}の中身"
+
+h1.page-header.text-primary = @title
+
 h2
   | 合計 : 
   = @total.to_s(:delimited)

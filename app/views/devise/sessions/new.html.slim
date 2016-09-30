@@ -1,4 +1,6 @@
-h1.page-header ログイン
+- @title = "ログイン"
+
+h1.page-header = @title
 
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   .form-horizontal
@@ -15,13 +17,14 @@ h1.page-header ログイン
     .form-group
       .col-sm-offset-2.col-sm-10
         .checkbox
-          label
+          label.pull-right
             = f.check_box :remember_me
             | ログイン情報を記録する
 
     .form-group
       .col-sm-offset-2.col-sm-10
-        = f.submit "ログイン", class: "btn btn-primary"
+        .pull-right
+          = f.submit "ログイン", class: "btn btn-primary"
 
 .text-center
   = render "devise/shared/links"

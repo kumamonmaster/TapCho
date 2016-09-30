@@ -1,4 +1,6 @@
-h1.page-header 新規登録
+- @title = "新規登録"
+
+h1.page-header = @title
 
 = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
   = devise_error_messages!
@@ -26,4 +28,5 @@ h1.page-header 新規登録
 
     .form-group
       .col-sm-offset-3.col-sm-9
-        = f.submit "登録する", class: "btn btn-primary"
+        .pull-right
+          = f.submit "登録する", class: "btn btn-primary"

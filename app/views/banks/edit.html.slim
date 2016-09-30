@@ -1,5 +1,7 @@
+- @title = "貯金箱の編集"
+
 h1.page-header
-  | 貯金箱の編集
+  = @title
   = link_to '削除', user_bank_path(@bank), method: :delete, class: "btn btn-danger pull-right", data: { confirm: "本当に削除してもいいですか？" }
 
 = form_for [current_user, @bank], :url => {:action => 'update'} do |f|
