@@ -2,7 +2,7 @@
 
 h1.page-header = @title
 
-= form_for [current_user, @bank] do |f|
+= form_for [current_user, @bank], :url => {:action => 'create'} do |f|
   .form-horizontal
     .form-group
       = f.label '貯金箱の名前', class: "col-sm-2 control-label"

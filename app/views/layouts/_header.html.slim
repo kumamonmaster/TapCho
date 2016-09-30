@@ -9,13 +9,10 @@ header.navbar.navbar-default.navbar-fixed-top
             | 貯金箱
             span.caret
           ul.dropdown-menu
-            - if current_user.banks.empty?
-              li = link_to '追加する', new_user_bank_path
-            - else
-              - current_user.banks.each do |bank|
-                li = link_to bank.title, user_bank_path(bank)
-              li.divider role="separator"
-              li = link_to '一覧', user_banks_path
+            - current_user.banks.each do |bank|
+              li = link_to bank.title, user_bank_path(bank)
+            li.divider role="separator"
+            li = link_to '追加する', new_user_bank_path
         
         li.dropdown
           a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
