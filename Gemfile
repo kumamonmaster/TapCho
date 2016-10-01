@@ -29,6 +29,10 @@ group :development, :test do
   gem 'hirb-unicode'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
 end
 
 group :development do
