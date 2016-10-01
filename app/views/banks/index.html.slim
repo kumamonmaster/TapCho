@@ -12,12 +12,12 @@ h1.page-header = @title
     - @banks.each do |bank|
       = link_to user_bank_path(bank), class: "list-group-item"
         h4.list-group-item-heading = bank.title
-        - unless bank.goal == 0
+        - unless bank.goal == 0 || bank.goal.blank?
           p.list-group-item-text
             | 目標:
             = bank.goal.to_s(:delimited)
             | 円
-        
+            
 .text-center
   = link_to new_user_bank_path
     i.fa.fa-plus-circle.fa-3x

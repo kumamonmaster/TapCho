@@ -24,6 +24,6 @@ class MoniesController < ApplicationController
     end
 
     def diff_money
-      diff = @bank.goal - @total
+      diff = @bank.goal - @total unless @bank.goal.blank?
     end
 end
