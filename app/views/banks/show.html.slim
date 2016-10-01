@@ -5,36 +5,59 @@ h1.page-header.text-primary
   = link_to '編集', edit_user_bank_path(@bank), class: "btn btn-success pull-right"
 
 .text-center.margin-bottom-50
-  = link_to image_tag("money_chokinbako", height: 70), user_bank_mony_path(@bank, @money)
+  = link_to image_tag("money_chokinbako", height: 70, id: "pig"), user_bank_mony_path(@bank, @money)
 
 .row.margin-bottom-50
   .col-sm-4.col-md-2.text-center
-    = image_tag "money_1", height: 70
+    / = link_to image_tag("money_1", height: 70, id: "money1"), { action: :countup }, remote: true
+    = image_tag "money_1", height: 70, class: "money pointer"
 
   .col-sm-4.col-md-2.text-center
-    = image_tag "money_5", height: 70
+    = image_tag "money_5", height: 70, class: "money pointer"
 
   .col-sm-4.col-md-2.text-center
-    = image_tag "money_10", height: 70
+    = image_tag "money_10", height: 70, class: "money pointer"
 
   .col-sm-4.col-md-2.text-center
-    = image_tag "money_50", height: 70
+    = image_tag "money_50", height: 70, class: "money pointer"
     
   .col-sm-4.col-md-2.text-center
-    = image_tag "money_100", height: 70
+    = image_tag "money_100", height: 70, class: "money pointer"
     
   .col-sm-4.col-md-2.text-center
-    = image_tag "money_500", height: 70
+    = image_tag "money_500", height: 70, class: "money pointer"
 
 .row
   .col-sm-6.col-md-3.text-center
-    = image_tag "money_1000", height: 70
+    = image_tag "money_1000", height: 70, class: "money pointer"
     
   .col-sm-6.col-md-3.text-center
-    = image_tag "money_2000", height: 70
+    = image_tag "money_2000", height: 70, class: "money pointer"
 
   .col-sm-6.col-md-3.text-center
-    = image_tag "money_5000", height: 70
+    = image_tag "money_5000", height: 70, class: "money pointer"
     
   .col-sm-6.col-md-3.text-center
-    = image_tag "money_10000", height: 70      
+    = image_tag "money_10000", height: 70, class: "money pointer"   
+
+javascript:
+  $(function(){
+    $('.money').click(function() {
+      $(this).slideUp();
+      $(this).fadeIn();
+      $('#pig').animate({paddingRight:1},{
+      	//2秒かけてアニメーション
+      	duration:1000,
+      	//stepは、アニメーションが進むたびに呼ばれる
+      	step:function(now){
+      		//0から1に向かって変化していくnowを利用してscaleさせてみる
+      		$(this).css({transform:'scale(' + (1 + Math.sin(now * 4 * Math.PI) / 2)  + ')'});
+      	},
+      	//終わったら
+      	complete:function(){
+      		//次のために、元に戻しておく
+      		$('#pig').css('paddingRight', 0);
+      	}
+      });
+    });
+  });
