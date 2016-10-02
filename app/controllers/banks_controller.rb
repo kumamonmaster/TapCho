@@ -42,9 +42,6 @@ class BanksController < ApplicationController
     redirect_to user_banks_path
   end
 
-  def countup
-  end
-
   private
     def bank_params
       params.require(:bank).permit(:title, :goal)

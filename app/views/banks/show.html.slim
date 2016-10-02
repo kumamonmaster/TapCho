@@ -9,36 +9,36 @@ h1.page-header.text-primary
 
 .row.margin-bottom-50
   .col-sm-4.col-md-2.text-center
-    / = link_to image_tag("money_1", height: 70, id: "money1"), { action: :countup }, remote: true
-    = image_tag "money_1", height: 70, class: "money pointer"
+    / = image_tag "money_1", height: 70, class: "money pointer", name: "money1", { 'data-id' => current_user.banks.id }
+    = image_tag "money_1", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money1" }
 
   .col-sm-4.col-md-2.text-center
-    = image_tag "money_5", height: 70, class: "money pointer"
+    = image_tag "money_5", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money5" }
 
   .col-sm-4.col-md-2.text-center
-    = image_tag "money_10", height: 70, class: "money pointer"
+    = image_tag "money_10", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money10" }
 
   .col-sm-4.col-md-2.text-center
-    = image_tag "money_50", height: 70, class: "money pointer"
+    = image_tag "money_50", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money50" }
     
   .col-sm-4.col-md-2.text-center
-    = image_tag "money_100", height: 70, class: "money pointer"
+    = image_tag "money_100", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money100" }
     
   .col-sm-4.col-md-2.text-center
-    = image_tag "money_500", height: 70, class: "money pointer"
+    = image_tag "money_500", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money500" }
 
 .row
   .col-sm-6.col-md-3.text-center
-    = image_tag "money_1000", height: 70, class: "money pointer"
+    = image_tag "money_1000", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money1000" }
     
   .col-sm-6.col-md-3.text-center
-    = image_tag "money_2000", height: 70, class: "money pointer"
+    = image_tag "money_2000", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money2000" }
 
   .col-sm-6.col-md-3.text-center
-    = image_tag "money_5000", height: 70, class: "money pointer"
+    = image_tag "money_5000", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money5000" }
     
   .col-sm-6.col-md-3.text-center
-    = image_tag "money_10000", height: 70, class: "money pointer"   
+    = image_tag "money_10000", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money10000" } 
 
 javascript:
   $(function(){
@@ -59,5 +59,11 @@ javascript:
       		$('#pig').css('paddingRight', 0);
       	}
       });
+      $.ajax({
+        url: '/user/banks/' + $(this).data('bank-id') + '/monies/' + $(this).data('id') + '/countup',
+        type: "post",
+        data: { name: $(this).data('name')}
+      });
+      // $.post('/user/banks/' + $(this).data('bank-id') + '/monies/' + $(this).data('id') + '/countup');
     });
   });
