@@ -19,3 +19,14 @@ h2
     | 円です！
 
 = render 'monies/table'
+
+javascript:
+  $(function() {
+    $('.countdown').click(function() {
+      $.ajax({
+        url: '/user/banks/' + $(this).data('bank-id') + '/monies/' + $(this).data('id') + '/countdown',
+        type: "post",
+        data: { name: $(this).data('name')}
+      });
+    });
+  });

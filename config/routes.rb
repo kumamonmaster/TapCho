@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       resources :monies, only: [:show, :destroy] do
         member do
           post :countup
+          post :countdown
         end
       end
     end

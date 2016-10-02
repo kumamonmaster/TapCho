@@ -9,7 +9,6 @@ h1.page-header.text-primary
 
 .row.margin-bottom-50
   .col-sm-4.col-md-2.text-center
-    / = image_tag "money_1", height: 70, class: "money pointer", name: "money1", { 'data-id' => current_user.banks.id }
     = image_tag "money_1", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money1" }
 
   .col-sm-4.col-md-2.text-center
@@ -46,16 +45,11 @@ javascript:
       $(this).slideUp();
       $(this).fadeIn();
       $('#pig').animate({paddingRight:1},{
-      	//2秒かけてアニメーション
       	duration:1000,
-      	//stepは、アニメーションが進むたびに呼ばれる
       	step:function(now){
-      		//0から1に向かって変化していくnowを利用してscaleさせてみる
       		$(this).css({transform:'scale(' + (1 + Math.sin(now * 4 * Math.PI) / 2)  + ')'});
       	},
-      	//終わったら
       	complete:function(){
-      		//次のために、元に戻しておく
       		$('#pig').css('paddingRight', 0);
       	}
       });
@@ -64,6 +58,5 @@ javascript:
         type: "post",
         data: { name: $(this).data('name')}
       });
-      // $.post('/user/banks/' + $(this).data('bank-id') + '/monies/' + $(this).data('id') + '/countup');
     });
   });

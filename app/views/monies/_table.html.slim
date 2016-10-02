@@ -6,8 +6,8 @@ table.table.text-center
     td
       | =
     td = @money.money1 * 1
-    td = link_to '-1', root_path, class: "label label-danger"
-
+    td = content_tag(:span, '-1', class: "span label label-danger pointer countdown", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money1" })
+            
   tr
     td = image_tag "money_5", height: 40
     td ×

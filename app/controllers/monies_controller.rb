@@ -8,7 +8,6 @@ class MoniesController < ApplicationController
 
   def countup
     render nothing: true
-    bank = Bank.find(params[:bank_id])
     @money = Money.find(params[:id])
     money_name = params[:name]
     case money_name
@@ -32,6 +31,35 @@ class MoniesController < ApplicationController
       @money.money5000 += 1
     when "money10000"
       @money.money1000 += 1
+    end
+    @money.save
+  end
+
+  def countdown
+    render nothing: true
+    @money = Money.find(params[:id])
+    money_name = params[:name]
+    case money_name
+    when "money1"
+      @money.money1 -= 1
+    when "money5"
+      @money.money5 -= 1
+    when "money10"
+      @money.money10 -= 1
+    when "money50"
+      @money.money50 -= 1
+    when "money100"
+      @money.money100 -= 1
+    when "money500"
+      @money.money500 -= 1
+    when "money1000"
+      @money.money1000 -= 1
+    when "money2000"
+      @money.money2000 -= 1
+    when "money5000"
+      @money.money5000 -= 1
+    when "money10000"
+      @money.money1000 -= 1
     end
     @money.save
   end
