@@ -14,9 +14,12 @@ h2#money_total
     | 円
 
   h2
-    | 目標まであと
-    span.text-danger#money_diff = @diff.to_s(:delimited)
-    | 円です！
+    - if @diff > 0
+      | 目標まであと
+      span.text-danger#money_diff = @diff.to_s(:delimited)
+      | 円です！
+    - else
+      | 目標を達成しました！
 
 = render 'monies/table'
 
