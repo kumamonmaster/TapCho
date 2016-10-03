@@ -30,16 +30,17 @@ class MoniesController < ApplicationController
     when "money5000"
       @money.money5000 += 1
     when "money10000"
-      @money.money1000 += 1
+      @money.money10000 += 1
     end
     @money.save
   end
 
   def countdown
-    render nothing: true
+    @bank = current_user.banks.find(params[:bank_id])
     @money = Money.find(params[:id])
-    money_name = params[:name]
-    case money_name
+    @money_name = params[:name]
+
+    case @money_name
     when "money1"
       @money.money1 -= 1
     when "money5"
@@ -59,9 +60,11 @@ class MoniesController < ApplicationController
     when "money5000"
       @money.money5000 -= 1
     when "money10000"
-      @money.money1000 -= 1
+      @money.money10000 -= 1
     end
     @money.save
+    @total = total_moeny
+    @diff = diff_money
   end
 
   private

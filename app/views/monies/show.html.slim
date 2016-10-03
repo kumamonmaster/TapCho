@@ -2,7 +2,7 @@
 
 h1.page-header.text-primary = @title
 
-h2
+h2#money_total
   | 合計 : 
   = @total.to_s(:delimited)
   | 円
@@ -15,7 +15,7 @@ h2
 
   h2
     | 目標まであと
-    span.text-danger = @diff.to_s(:delimited)
+    span.text-danger#money_diff = @diff.to_s(:delimited)
     | 円です！
 
 = render 'monies/table'

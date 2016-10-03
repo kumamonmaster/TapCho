@@ -2,89 +2,89 @@ table.table.text-center
   tr
     td = image_tag "money_1", height: 40
     td ×
-    td = @money.money1
+    td#money1_count = @money.money1
     td
       | =
-    td = @money.money1 * 1
-    td = content_tag(:span, '-1', class: "span label label-danger pointer countdown", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money1" })
+    td#money1_value = @money.money1 * 1
+    td = link_to '-1', countdown_user_bank_mony_path(@bank, @money, name: "money1"), method: :post, class: "label label-danger", remote: true
             
   tr
     td = image_tag "money_5", height: 40
     td ×
-    td = @money.money5
+    td#money5_count = @money.money5
     td
       | =
-    td = @money.money5 * 5
-    td = link_to '-1', root_path, class: "label label-danger"
+    td#money5_value = @money.money5 * 5
+    td = link_to '-1', countdown_user_bank_mony_path(@bank, @money, name: "money5"), method: :post, class: "label label-danger", remote: true
     
   tr
     td = image_tag "money_10", height: 40
     td ×
-    td = @money.money10
+    td#money10_count = @money.money10
     td
       | =
-    td = @money.money10 * 10
-    td = link_to '-1', root_path, class: "label label-danger"
+    td#money10_value = @money.money10 * 10
+    td = link_to '-1', countdown_user_bank_mony_path(@bank, @money, name: "money10"), method: :post, class: "label label-danger", remote: true
     
   tr
     td = image_tag "money_50", height: 40
     td ×
-    td = @money.money50
+    td#money50_count = @money.money50
     td
       | =
-    td = @money.money50 * 50
-    td = link_to '-1', root_path, class: "label label-danger"
+    td#money50_value = @money.money50 * 50
+    td = link_to '-1', countdown_user_bank_mony_path(@bank, @money, name: "money50"), method: :post, class: "label label-danger", remote: true
 
   tr
     td = image_tag "money_100", height: 40
     td ×
-    td = @money.money100
+    td#money100_count = @money.money100
     td
       | =
-    td = @money.money100 * 100
-    td = link_to '-1', root_path, class: "label label-danger"
+    td#money100_value = @money.money100 * 100
+    td = link_to '-1', countdown_user_bank_mony_path(@bank, @money, name: "money100"), method: :post, class: "label label-danger", remote: true
     
   tr
     td = image_tag "money_500", height: 40
     td ×
-    td = @money.money500
+    td#money500_count = @money.money500
     td
       | =
-    td = @money.money500 * 500
-    td = link_to '-1', root_path, class: "label label-danger"
+    td#money500_value = @money.money500 * 500
+    td = link_to '-1', countdown_user_bank_mony_path(@bank, @money, name: "money500"), method: :post, class: "label label-danger", remote: true
     
   tr
     td = image_tag "money_1000", height: 40
     td ×
-    td = @money.money1000
+    td#money1000_count = @money.money1000
     td
       | =
-    td = @money.money1000 * 1000
-    td = link_to '-1', root_path, class: "label label-danger"
+    td#money1000_value = @money.money1000 * 1000
+    td = link_to '-1', countdown_user_bank_mony_path(@bank, @money, name: "money1000"), method: :post, class: "label label-danger", remote: true
     
   tr
     td = image_tag "money_2000", height: 40
     td ×
-    td = @money.money2000
+    td#money2000_count = @money.money2000
     td
       | =
-    td = @money.money2000 * 2000
-    td = link_to '-1', root_path, class: "label label-danger"
+    td#money2000_value = @money.money2000 * 2000
+    td = link_to '-1', countdown_user_bank_mony_path(@bank, @money, name: "money2000"), method: :post, class: "label label-danger", remote: true
     
   tr
     td = image_tag "money_5000", height: 40
     td ×
-    td = @money.money5000
+    td#money5000_count = @money.money5000
     td
       | =
-    td = @money.money5000 * 5000
-    td = link_to '-1', root_path, class: "label label-danger"
+    td#money5000_value = @money.money5000 * 5000
+    td = link_to '-1', countdown_user_bank_mony_path(@bank, @money, name: "money5000"), method: :post, class: "label label-danger", remote: true
     
   tr
     td = image_tag "money_10000", height: 40
     td ×
-    td = @money.money10000
+    td#money10000_count = @money.money10000
     td
       | =
-    td = @money.money10000 * 10000
-    td = link_to '-1', root_path, class: "label label-danger"
+    td#money10000_value = @money.money10000 * 10000
+    td = link_to '-1', countdown_user_bank_mony_path(@bank, @money, name: "money10000"), method: :post, class: "label label-danger", remote: true

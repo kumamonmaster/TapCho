@@ -1,0 +1,43 @@
+- case @money_name
+- when "money1"
+  | $('#money1_count').html("#{@money.money1}");
+  | $('#money1_value').html("#{@money.money1 * 1}");
+  
+- when "money5"
+  | $('#money5_count').html("#{@money.money5}");
+  | $('#money5_value').html("#{@money.money5 * 5}");
+  
+- when "money10"
+  | $('#money10_count').html("#{@money.money10}");
+  | $('#money10_value').html("#{@money.money10 * 10}");
+
+- when "money50"
+  | $('#money50_count').html("#{@money.money50}");
+  | $('#money50_value').html("#{@money.money50 * 50}");
+
+- when "money100"
+  | $('#money100_count').html("#{@money.money100}");
+  | $('#money100_value').html("#{@money.money100 * 100}");
+
+- when "money500"
+  | $('#money500_count').html("#{@money.money500}");
+  | $('#money500_value').html("#{@money.money500 * 500}");
+
+- when "money1000"
+  | $('#money1000_count').html("#{@money.money1000}");
+  | $('#money1000_value').html("#{@money.money1000 * 1000}");
+
+- when "money2000"
+  | $('#money2000_count').html("#{@money.money2000}");
+  | $('#money2000_value').html("#{@money.money2000 * 2000}");
+
+- when "money5000"
+  | $('#money5000_count').html("#{@money.money5000}");
+  | $('#money5000_value').html("#{@money.money5000 * 5000}");
+
+- when "money10000"
+  | $('#money10000_count').html("#{@money.money10000}");
+  | $('#money10000_value').html("#{@money.money10000 * 10000}");
+
+| $('#money_total').html('合計 : #{@total.to_s(:delimited)}円');
+| $('#money_diff').html('#{@diff.to_s(:delimited)}');
