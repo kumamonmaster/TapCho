@@ -1,0 +1,21 @@
+- @title = "貯金箱の追加"
+
+h1.page-header = @title
+
+= form_for [current_user, @bank], :url => {:action => 'create'} do |f|
+  .form-horizontal
+    .form-group
+      = f.label '貯金箱の名前', class: "col-sm-2 control-label"
+      .col-sm-10
+        = f.text_field :title, class: "form-control", placeholder: "例：500円玉貯金", autofocus: true
+      
+    .form-group
+      = f.label '目標の金額', class: "col-sm-2 control-label"
+      .col-sm-10
+        = f.number_field :goal, class: "form-control", placeholder: "例：10000（半角数字で入力してください）"
+    
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        .pull-right
+          = f.submit '追加する', class: "btn btn-primary margin-right-10"
+          = link_to 'キャンセル', user_banks_path, class: "btn btn-default"

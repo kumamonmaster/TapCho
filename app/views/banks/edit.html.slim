@@ -1,0 +1,23 @@
+- @title = "貯金箱の編集"
+
+h1.page-header
+  = @title
+  = link_to '削除', user_bank_path(@bank), method: :delete, class: "btn btn-danger pull-right", data: { confirm: "本当に削除してもいいですか？" }
+
+= form_for [current_user, @bank], :url => {:action => 'update'} do |f|
+  .form-horizontal
+    .form-group
+      = f.label '貯金箱の名前', class: "col-sm-2 control-label"
+      .col-sm-10
+        = f.text_field :title, class: "form-control", placeholder: "例：500円玉貯金", autofocus: true
+      
+    .form-group
+      = f.label '目標の金額', class: "col-sm-2 control-label"
+      .col-sm-10
+        = f.number_field :goal, class: "form-control", placeholder: "例：10000（半角数字で入力してください）"
+    
+    .form-group
+      .col-sm-offset-2.col-sm-10
+        .pull-right
+          = f.submit '更新', class: "btn btn-success margin-right-10"
+          = link_to 'キャンセル', :back, class: "btn btn-default"

@@ -1,0 +1,16 @@
+doctype html
+html
+head
+  title = @title ? "#{@title} | TapCho" : "TapCho" 
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  = csrf_meta_tags
+body
+  = render 'layouts/header'
+  p.notice
+    = notice
+  p.alert
+    = alert
+  .row
+    .col-md-6.col-md-offset-3
+      = yield

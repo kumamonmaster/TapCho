@@ -1,0 +1,9 @@
+$places: 'margin-top', 'margin-left', 'margin-bottom', 'margin-right';
+
+@each $place in $places {
+  @for $i from 1 through 100 {
+    .#{$place}-#{$i} {
+      #{$place}: #{$i}px;
+    }
+  }
+}

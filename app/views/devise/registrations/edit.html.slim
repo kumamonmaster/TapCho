@@ -1,0 +1,45 @@
+- @title = "アカウント設定"
+
+h1.page-header.text-primary = @title
+
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = devise_error_messages!
+
+  .form-horizontal
+    .form-group
+      = f.label 'ユーザー名', class: "col-sm-3 control-label"
+      .col-sm-9
+        = f.text_field :username, class: "form-control", placeholder: "ユーザー名", autofocus: true
+
+    .form-group
+      = f.label 'メールアドレス', class: "col-sm-3 control-label"
+      .col-sm-9
+        = f.email_field :email, class: "form-control", placeholder: "メールアドレス"
+
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      div
+        | Currently waiting confirmation for: 
+        = resource.unconfirmed_email
+
+    .form-group
+      = f.label '新パスワード', class: "col-sm-3 control-label"
+      .col-sm-9
+        = f.password_field :password, class: "form-control", placeholder: "新しいパスワード", autocomplete: "off"
+
+    .form-group
+      = f.label '新パスワード（確認）', class: "col-sm-3 control-label"
+      .col-sm-9
+        = f.password_field :password_confirmation, class: "form-control", placeholder: "新しいパスワード（確認）", autocomplete: "off"
+
+    .form-group
+      = f.label '現在のパスワード', class: "col-sm-3 control-label"
+      .col-sm-9
+        = f.password_field :current_password, class: "form-control", placeholder: "現在のパスワード", autocomplete: "off"
+
+    .form-group
+      .col-sm-offset-3.col-sm-9
+        .pull-right
+          = f.submit "更新する", class: "btn btn-success"
+
+.text-right
+  = link_to "退会をご希望の方はこちら", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete

@@ -1,0 +1,62 @@
+- @title = @bank.title
+
+h1.page-header.text-primary
+  = @title
+  = link_to '編集', edit_user_bank_path(@bank), class: "btn btn-success pull-right"
+
+.text-center.margin-bottom-50
+  = link_to image_tag("money_chokinbako", height: 70, id: "pig"), user_bank_mony_path(@bank, @money)
+
+.row.margin-bottom-50
+  .col-sm-4.col-md-2.text-center
+    = image_tag "money_1", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money1" }
+
+  .col-sm-4.col-md-2.text-center
+    = image_tag "money_5", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money5" }
+
+  .col-sm-4.col-md-2.text-center
+    = image_tag "money_10", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money10" }
+
+  .col-sm-4.col-md-2.text-center
+    = image_tag "money_50", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money50" }
+    
+  .col-sm-4.col-md-2.text-center
+    = image_tag "money_100", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money100" }
+    
+  .col-sm-4.col-md-2.text-center
+    = image_tag "money_500", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money500" }
+
+.row
+  .col-sm-6.col-md-3.text-center
+    = image_tag "money_1000", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money1000" }
+    
+  .col-sm-6.col-md-3.text-center
+    = image_tag "money_2000", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money2000" }
+
+  .col-sm-6.col-md-3.text-center
+    = image_tag "money_5000", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money5000" }
+    
+  .col-sm-6.col-md-3.text-center
+    = image_tag "money_10000", height: 70, class: "money pointer", data: { 'bank_id' => @bank.id, 'id' => @money.id, 'name' => "money10000" } 
+
+javascript:
+  $(function(){
+    $('.money').click(function() {
+      $(this).slideUp();
+      $(this).fadeIn();
+      $('#pig').animate({paddingRight:1},{
+      	duration:1000,
+      	step:function(now){
+      		$(this).css({transform:'scale(' + (1 + Math.sin(now * 4 * Math.PI) / 2)  + ')'});
+      	},
+      	complete:function(){
+      		$('#pig').css('paddingRight', 0);
+      	}
+      });
+      $.ajax({
+        url: '/user/banks/' + $(this).data('bank-id') + '/monies/' + $(this).data('id') + '/countup',
+        type: "post",
+        data: { name: $(this).data('name')}
+      });
+    });
+  });
