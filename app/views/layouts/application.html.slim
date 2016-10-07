@@ -1,16 +1,19 @@
 doctype html
 html
 head
+  = render 'layouts/meta'
   title = @title ? "#{@title} | TapCho" : "TapCho" 
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'application', 'data-turbolinks-track' => true
   = csrf_meta_tags
+  = render 'layouts/shim'
 body
   = render 'layouts/header'
   p.notice
     = notice
   p.alert
     = alert
-  .row
-    .col-md-6.col-md-offset-3
-      = yield
+  .container
+    .row
+      .col-md-6.col-md-offset-3
+        = yield

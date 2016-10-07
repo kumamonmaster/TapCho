@@ -1,28 +1,24 @@
 header.navbar.navbar-default.navbar-fixed-top
   .container
     .navbar-header
+      button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
       = link_to 'TapCho beta', root_path, class: "navbar-brand"
-    ul.nav.navbar-nav.navbar-right
-      - if user_signed_in?
-        / li.dropdown
-        /   a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
-        /     | 貯金箱
-        /     span.caret
-        /   ul.dropdown-menu
-        /     - current_user.banks.each do |bank|
-        /       li = link_to bank.title, user_bank_path(bank)
-        /     li.divider role="separator"
-        /     li = link_to '追加する', new_user_bank_path
-        
-        li.dropdown
-          a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
-            = current_user.username
-            span.caret
-          ul.dropdown-menu
-            li = link_to 'マイページ', user_path
-            li = link_to 'アカウント設定', edit_user_registration_path
-            li.divider role="separator"
-            li = link_to 'ログアウト', destroy_user_session_path, method: :delete
-      - else
-        li = link_to 'ログイン', new_user_session_path
-        li = link_to '新規登録', new_user_registration_path
+    
+    .collapse.navbar-collapse#bs-example-navbar-collapse-1 
+      ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          li.dropdown
+            a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"
+              = current_user.username
+              span.caret
+            ul.dropdown-menu
+              li = link_to 'マイページ', user_path
+              li = link_to 'アカウント設定', edit_user_registration_path
+              li.divider role="separator"
+              li = link_to 'ログアウト', destroy_user_session_path, method: :delete
+        - else
+          li = link_to 'ログイン', new_user_session_path
+          li = link_to '新規登録', new_user_registration_path
