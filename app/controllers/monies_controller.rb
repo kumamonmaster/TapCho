@@ -1,4 +1,6 @@
 class MoniesController < ApplicationController
+  before_action :authenticate_user!
+  
   def show
     @bank = current_user.banks.find(params[:bank_id])
     @money = Money.find(params[:id])
